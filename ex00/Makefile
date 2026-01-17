@@ -1,5 +1,5 @@
 #Executable name
-NAME = convert
+NAME = functionTemplate
 
 #Compiler and flags 
 CC = c++
@@ -7,11 +7,10 @@ IFLAGS = -I include
 FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 
 #Header files
-HDRS = include/ScalarConverter.hpp
+HDRS = whatever.hpp
 
 #Source files
-SRCS = src/main.cpp src/ScalarConverter.cpp src/identifyType.cpp src/utils.cpp \
-	   src/displayDataTypes.cpp
+SRCS = main.cpp 
 
 #Object file
 
