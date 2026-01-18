@@ -31,3 +31,4 @@ void iter(T *addres, const T len, Func func)
 
 #endif
 
+// virtual =0 could have a declarsation in the abstract class, is it correct
