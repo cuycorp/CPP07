@@ -9,5 +9,11 @@
 * Resources
     * function templates: https://www.youtube.com/watch?v=XgGEJylsWsQ 
 
-    * class templates: 
+    * class templates: https://www.youtube.com/watch?v=mQqzP9EWu58
+        * defines class with a particular type and tempalte on compile type.
+        * instantiates the class at run time. 
     * overloading function templates: https://youtu.be/l0Tg_95OKWw?si=TLxshIOewFvuq3b-
+
+* Other definitionsz
+    * Preventive allocation: allocate with margin, just in case allocation.
+    * Copy constructor and assignment operator
