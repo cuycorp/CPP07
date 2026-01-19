@@ -4,7 +4,7 @@
     * template <typename T> & void f1(T a){}; are in joint a template
     * These functions can be called with any type of argument. The only requirement is that the two arguments must have the same type and must support all the comparison operators.
     * Note on reference
-
+    * .tpp file: for putting the logic of code associated to template, called in .hpp with include 
 
 * Resources
     * function templates: https://www.youtube.com/watch?v=XgGEJylsWsQ 
