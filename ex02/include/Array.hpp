@@ -8,14 +8,18 @@ class Array
     public:
         T *arr;
         unsigned int _size;
+
         //OCF
         Array(void); //empty array, only pointer?
         Array(unsigned int n); //create array, initialized by defualt
         Array(const Array& other);
         Array &operator=(const Array &other);
         ~Array();
+
+        //Operator overload
+        T &operator [](unsigned int index);
+        const T &operator [](unsigned int index) const;
         //member function
-        T &operator [](unsigned int index) const;
         unsigned int size(void) const;
 };
 

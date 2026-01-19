@@ -14,6 +14,6 @@
         * instantiates the class at run time. 
     * overloading function templates: https://youtu.be/l0Tg_95OKWw?si=TLxshIOewFvuq3b-
 
-* Other definitionsz
+* Other definitions
     * Preventive allocation: allocate with margin, just in case allocation.
     * Copy constructor and assignment operator

@@ -23,7 +23,7 @@ Array<T>::Array(const Array &other)
     std::cout << "Copy constructor called" << std::endl;
     _size = other._size;
     arr = new T[other._size];
-    for (int i = 0; i < other._size; i++)
+    for (unsigned int i = 0; i < other._size; i++)
         arr[i] = other.arr[i];
     return ;
 }
@@ -34,16 +34,26 @@ Array<T> &Array<T>::operator=(const Array &other)
     std::cout << "Assignment operator called" << std::endl;
     if (this != &other)
     {
+        _size = other._size;
         delete[] arr;
         arr = new T[other._size];
-        for (int i = 0; i < other._size; i++)
+        for (unsigned int i = 0; i < other._size; i++)
             arr[i] = other.arr[i];
     }
     return (*this);
 }
 
 template <typename T>
-T &Array<T>::operator [](unsigned int index) const
+T &Array<T>::operator [](unsigned int index)
+{
+    if(index < _size)
+        return (arr[index]);
+    else
+        throw std::out_of_range("Index out of range");
+}
+
+template <typename T>
+const T &Array<T>::operator [](unsigned int index) const
 {
     if(index < _size)
         return (arr[index]);
