@@ -18,3 +18,6 @@
     * Preventive allocation: allocate with margin, just in case allocation.
     * Copy constructor: creates from scratch a new instance from already existing class, it makes a copy of the existing one.
     * Assignment operator: copy to an already existing isntance of a class.
+ 
+  ------
+  pending review valgrind
