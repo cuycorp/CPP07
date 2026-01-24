@@ -4,7 +4,7 @@ NAME = iter
 #Compiler and flags 
 CC = c++
 IFLAGS = -I include
-FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
+FLAGS = -g -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 
 #Header files
 HDRS = include/Array.hpp

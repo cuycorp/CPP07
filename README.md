@@ -10,7 +10,7 @@
     * function templates: https://www.youtube.com/watch?v=XgGEJylsWsQ 
 
     * class templates: https://www.youtube.com/watch?v=mQqzP9EWu58
-        * defines class with a particular type and tempalte on compile type.
+        * defines class with a particular type and template on compile type.
         * instantiates the class at run time. 
     * overloading function templates: https://youtu.be/l0Tg_95OKWw?si=TLxshIOewFvuq3b-
 
@@ -19,5 +19,6 @@
     * Copy constructor: creates from scratch a new instance from already existing class, it makes a copy of the existing one.
     * Assignment operator: copy to an already existing isntance of a class.
  
-  ------
-  pending review valgrind
+* Note on delete: 
+    1. new T[n] → delete[] arr, new T[n], allocates enough contiguous memory to store n.
+    2. new T → delete ptr

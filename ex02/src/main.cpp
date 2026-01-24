@@ -1,6 +1,5 @@
 #include "Array.hpp"
 
-
 #define RESET   "\033[0m"
 #define PINK    "\033[35m"
 
@@ -12,12 +11,9 @@ int main(void)
     //default initializing
     int * a = new int();
     std::cout << a[0] << std::endl;
+    delete a;
     
     //class test
-
-    std::cout << PINK <<  "Copy constructo and assigmnet operator tests" <<  RESET << std::endl;
-
-
     std::cout << PINK <<  "Template class test" <<  RESET << std::endl;
     Array<int> intArray(3);
 
@@ -28,7 +24,7 @@ int main(void)
     }
     catch (std::out_of_range &e)
     {
-        std::cout << "Caught reading execption: " <<  e.what() << std::endl;
+        std::cout << "Caught reading exception: " <<  e.what() << std::endl;
     }
 
     try
@@ -38,12 +34,14 @@ int main(void)
     }
     catch(std::out_of_range &e)
     {
-        std::cout << "Caught writing execption: " <<  e.what() << std::endl;
+        std::cout << "Caught writing exception: " <<  e.what() << std::endl;
     }
     for(int i = 0; i < 3; i++)
         std::cout << intArray[i] << std::endl;
 }
 
+
+std::cout << PINK <<  "Copy constructor and assigment operator tests" <<  RESET << std::endl;
 {
 std::cout << "===== Copy Constructor Test =====" << std::endl;
 
@@ -115,3 +113,4 @@ std::cout << "===== Copy Constructor Test =====" << std::endl;
 }
     return 0;
 }
+

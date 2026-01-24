@@ -12,7 +12,7 @@ Array<T>::Array(void) : arr(NULL), _size(0)
 template <typename T>
 Array<T>::Array(unsigned int n)
 {
-    arr = new T[n];
+    arr = new T[n]();
     _size = n;
     return;     
 }
