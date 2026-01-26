@@ -1,24 +1,48 @@
 # CPP07
-* Function template: reduces duplicated code.
-    * template <typename T> : is a placeholder for an item
-    * template <typename T> & void f1(T a){}; are in joint a template
-    * These functions can be called with any type of argument. The only requirement is that the two arguments must have the same type and must support all the comparison operators.
-    * Note on reference
-    * .tpp file: for putting the logic of code associated to template, called in .hpp with include 
+
+* Concepts covered
+    * Function template: reduces duplicated code.
+        * template <typename T> : is a placeholder for an item
+        * template <typename T> & void f1(T a){}; are in joint a template
+        * These functions can be called with any type of argument. The only requirement is that the two arguments must have the same type and must support all the comparison operators.
+        * Note on reference
+        * .tpp file: for putting the logic of code associated to template, called in .hpp with include 
+
+    * Resources
+        * function templates: https://www.youtube.com/watch?v=XgGEJylsWsQ 
+
+        * class templates: https://www.youtube.com/watch?v=mQqzP9EWu58
+            * defines class with a particular type and template on compile type.
+            * instantiates the class at run time. 
+        * overloading function templates: https://youtu.be/l0Tg_95OKWw?si=TLxshIOewFvuq3b-
+
+    * Other definitions
+        * Preventive allocation: allocate with margin, just in case allocation.
+        * Copy constructor: creates from scratch a new instance from already existing class, it makes a copy of the existing one.
+        * Assignment operator: copy to an already existing isntance of a class.
+    
+    * Assertion tests
+        * 
+
+    * Note on delete: 
+        1. new T[n] → delete[] arr, new T[n], allocates enough contiguous memory to store n.
+        2. new T → delete ptr
 
 * Resources
-    * function templates: https://www.youtube.com/watch?v=XgGEJylsWsQ 
+    * Assert test reference: https://github.com/raveriss/cpp07 
 
-    * class templates: https://www.youtube.com/watch?v=mQqzP9EWu58
-        * defines class with a particular type and template on compile type.
-        * instantiates the class at run time. 
-    * overloading function templates: https://youtu.be/l0Tg_95OKWw?si=TLxshIOewFvuq3b-
+////Tasks
+test con clases ex0
+correccion ex02 y tests
 
-* Other definitions
-    * Preventive allocation: allocate with margin, just in case allocation.
-    * Copy constructor: creates from scratch a new instance from already existing class, it makes a copy of the existing one.
-    * Assignment operator: copy to an already existing isntance of a class.
- 
-* Note on delete: 
-    1. new T[n] → delete[] arr, new T[n], allocates enough contiguous memory to store n.
-    2. new T → delete ptr
+////Observations
+ex00
+1. tests    
+    * description include 
+ex01
+1. add type
+2. revise the difference between my solutions and alternatives, word out the validity of my function
+3. add class tests
+ex02
+1. revise empty array 
+2. tests
