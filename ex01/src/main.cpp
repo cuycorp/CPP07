@@ -1,17 +1,24 @@
 #include "iter.hpp"
 #include <iostream>
 
-
-
+/*                Test functions           */
+/**
+  @brief write function, increses by one the int variable received.
+*/
 void increaseOne(int &n)
 {
     n++;
 }
 
+/**
+  @brief read function, prints the int variable received.
+*/
 void readArray(const int &n)
 {
     std::cout << n << std::endl;
 }
+
+
 
 int main()
 {
@@ -27,10 +34,32 @@ int main()
     {
         std::cout << arr[i] << std::endl;
     }
-    
+
+
+    std::cout << PINK << "\n/* **************************************************************************/" << RESET << std ::endl;
+		std::cout << PINK << "/*                                    TESTER                                  */" << RESET << std::endl;
+		std::cout << PINK << "/* ************************************************************************** */\n" << RESET << std ::endl;
+
+		std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */" << RESET << std ::endl;
+		std::cout << PINK << "/*                                    ARRAY OF INTS                           */" << RESET << std ::endl;
+		std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */\n" << RESET << std ::endl;
+
+		std::cout << MAGENTA << "TEST WITH CHAR" << RESET << std::endl;
+
+		/* Test swap with chars */
+		int x1 = 'a', y1 = 'Z';
+		::swap(x1, y1);
+		ASSERT_TEST(x1 == 'Z' && y1 == 'a', "swap(int): x = " + std::string(1, static_cast<char>(x1)) + ", y = " + std::string(1, static_cast<char>(y1)));
+        
+        
+    std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */" << RESET << std ::endl;
+		std::cout << PINK << "/*                              ARRAY OF CLASS VARIABLES                      */" << RESET << std ::endl;
+		std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */\n" << RESET << std ::endl;
+
+		std::cout << MAGENTA << "TEST WITH REGULAR INTEGER" << RESET << std::endl;
 }
 
-
+//add test with non function call to proove validity
 
 /*
 class Awesome
