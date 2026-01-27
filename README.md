@@ -24,8 +24,6 @@
         * Copy constructor: creates from scratch a new instance from already existing class, it makes a copy of the existing one.
         * Assignment operator: copy to an already existing isntance of a class.
     
-    * Assertion tests
-        * 
 
     * Note on delete: 
         1. new T[n] → delete[] arr, new T[n], allocates enough contiguous memory to store n.
