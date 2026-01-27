@@ -1,20 +1,54 @@
 #include "Array.hpp"
 
-#define RESET   "\033[0m"
-#define PINK    "\033[35m"
+/* For std::cout*/
+#include <iostream>
+
+
+#define RESET     "\033[0m"
+#define PINK      "\033[35m"
+#define YELLOW    "\033[0;33m"
+#define RED       "\033[0;31m"
+#define GREEN     "\033[0;32m"
+
+
 
 
 int main(void)
 {
 {
-    std::cout << PINK << "Testing default initialization" << RESET << std::endl;
-    //default initializing
-    int * a = new int();
-    std::cout << a[0] << std::endl;
-    delete a;
+    //Concept review of default initializing
+    //int * a = new int();
+    //std::cout << a[0] << std::endl;
+    //delete a;
     
-    //class test
-    std::cout << PINK <<  "Template class test" <<  RESET << std::endl;
+    std::cout << PINK << "\n/* **************************************************************************/" << RESET << std ::endl;
+	std::cout << PINK << "/*                                    TESTER                                  */" << RESET << std::endl;
+	std::cout << PINK << "/* ***************************************************************************/\n" << RESET << std ::endl;
+	std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */" << RESET << std ::endl;
+	std::cout << PINK << "/*                                   EMPTY                                     */" << RESET << std ::endl;
+	std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */\n" << RESET << std ::endl;
+
+    //Testing empty array
+    Array<int> empty;
+    std::cout << "Empty size: " << empty.size() << std::endl; 
+
+    // Copy empty
+    Array<int> copyEmpty(empty);
+    std::cout << "Copy empty size: " << copyEmpty.size() << std::endl;  // 0
+    
+    // Try out of bounds
+    try {
+        empty[0] = 5;  // Should throw
+    } catch (std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+
+    std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */" << RESET << std ::endl;
+	std::cout << PINK << "/*                                   INT                                     */" << RESET << std ::endl;
+	std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */\n" << RESET << std ::endl;
+
+    std::cout << PINK <<  "Testing subscript operator reading" <<  RESET << std::endl;
     Array<int> intArray(3);
 
     try
@@ -27,6 +61,7 @@ int main(void)
         std::cout << "Caught reading exception: " <<  e.what() << std::endl;
     }
 
+    std::cout << PINK <<  "Testing subscript operator writing" <<  RESET << std::endl;
     try
     {
         for(int i = 0; i < 3; i++)
@@ -40,11 +75,11 @@ int main(void)
         std::cout << intArray[i] << std::endl;
 }
 
+std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */" << RESET << std ::endl;
+std::cout << PINK << "/*                               COPY CONSTRUCTOR                                */" << RESET << std ::endl;
+std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */\n" << RESET << std ::endl;
 
-std::cout << PINK <<  "Copy constructor and assigment operator tests" <<  RESET << std::endl;
 {
-std::cout << "===== Copy Constructor Test =====" << std::endl;
-
     Array<int> original(5);
     for (unsigned int i = 0; i < original.size(); i++)
         original[i] = i * 10;  // 0, 10, 20, 30, 40
@@ -76,13 +111,14 @@ std::cout << "===== Copy Constructor Test =====" << std::endl;
         std::cout << copy[i] << " ";
     std::cout << std::endl;
 
-    std::cout << "\n===== Assignment Operator Test =====" << std::endl;
-
+std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */" << RESET << std ::endl;
+std::cout << PINK << "/*                             ASSIGNMENT OPERATOR                               */" << RESET << std ::endl;
+std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */\n" << RESET << std ::endl;
     Array<int> assignTest(3);
     for (unsigned int i = 0; i < assignTest.size(); i++)
         assignTest[i] = i + 1; // 1, 2, 3
 
-    std::cout << "Before assignment:" << std::endl;
+    std::cout << YELLOW << "Before assignment:" << RESET <<std::endl;
     std::cout << "assignTest: ";
     for (unsigned int i = 0; i < assignTest.size(); i++)
         std::cout << assignTest[i] << " ";
@@ -91,7 +127,7 @@ std::cout << "===== Copy Constructor Test =====" << std::endl;
     // Assign original array to assignTest
     assignTest = original;
 
-    std::cout << "After assignment assignTest = original:" << std::endl;
+    std::cout << YELLOW << "After assignment assignTest = original:" << RESET << std::endl;
     std::cout << "assignTest: ";
     for (unsigned int i = 0; i < assignTest.size(); i++)
         std::cout << assignTest[i] << " ";
@@ -100,7 +136,7 @@ std::cout << "===== Copy Constructor Test =====" << std::endl;
     // Modify assignTest and check original stays the same
     assignTest[0] = 555;
 
-    std::cout << "After modifying assignTest[0] = 555" << std::endl;
+    std::cout << YELLOW << "After modifying assignTest[0] = 555" << RESET << std::endl;
     std::cout << "assignTest: ";
     for (unsigned int i = 0; i < assignTest.size(); i++)
         std::cout << assignTest[i] << " ";

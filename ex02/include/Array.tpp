@@ -1,7 +1,7 @@
 #include "Array.hpp"
 #include <exception>
 
-// Default constructor
+// OCF
 template <typename T>
 Array<T>::Array(void) : arr(NULL), _size(0)
 { 
@@ -65,7 +65,7 @@ template <typename T>
 Array<T>::~Array(void)
 {
     delete[] arr; //explore
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
     return ;
 }
 

@@ -1,5 +1,5 @@
 #Executable name
-NAME = iter
+NAME = array
 
 #Compiler and flags 
 CC = c++
