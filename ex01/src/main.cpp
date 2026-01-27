@@ -1,5 +1,16 @@
 #include "iter.hpp"
+
+/* For std::cout*/
 #include <iostream>
+/* std::numeric_limits library for edge case test*/
+#include <limits>
+
+
+#define RESET     "\033[0m"
+#define PINK      "\033[35m"
+#define MAGENTA   "\033[0;35m"
+#define RED       "\033[0;31m"
+#define GREEN     "\033[0;32m"
 
 /*                Test functions           */
 /**
@@ -7,7 +18,8 @@
 */
 void increaseOne(int &n)
 {
-    n++;
+  std::cout<< "executing write array function: \n";  
+  n++;
 }
 
 /**
@@ -15,48 +27,102 @@ void increaseOne(int &n)
 */
 void readArray(const int &n)
 {
-    std::cout << n << std::endl;
+  std::cout<< "executing read array function: \n";
+  std::cout << n << std::endl;
 }
 
 
+/**
+ *  @brief Macro for asserting test results and displaying appropriate messages
+ */
+
+#define ASSERT_TEST(expectedResultCondition, expectedResultMessage) \
+	if (expectedResultCondition) \
+        { std::cout << GREEN << "[TEST PASSED]" << RESET << " " << expectedResultMessage << std::endl; } \
+	else \
+        { std::cout << RED << "[TEST FAILED]" << RESET << " " << expectedResultMessage << std::endl; }
+
+
+
+
+/**
+ * @brief Template function to test iter function
+ */
+template <typename T, typename T2, typename Func>
+void testIter(T *array, T2 length, Func func, T *expectedArray) 
+{
+    iter(array, length, func); //call iter
+    bool passed = true; //value default to true
+    for (T2 i = 0; i < length; ++i) { //loop over string passed to the function
+        if (array[i] != expectedArray[i]) {
+            passed = false; //checking for difference between expected result, if different, set false and assert.
+            break;
+        }
+    }
+    ASSERT_TEST(passed, "iter function works correctly.");
+}
+
+
+/* definitons needed for class test*/
+class Awesome
+{
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+    bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+  private:
+    int _n;
+};
+
+std::ostream & operator<<( std::ostream &o, Awesome const &rhs)
+{
+  o << rhs.get();
+  return o;
+};
+
+template< typename T >
+void print( T& x )
+{
+  std::cout<< "executing write array function: \n";  
+  std::cout << x << std::endl;
+  return;
+};
 
 int main()
 {
-    int len = 3;
-    int arr[3] = {0, 1, 2};
-    std::cout << "const reference test" << std::endl;
-    iter(&arr[0], len, readArray);
-    std::cout << std::endl;
-    
-    std::cout << "reference test" << std::endl;
-    iter(&arr[0], len, increaseOne);
-    for (int i = 0; i < len; i++)
-    {
-        std::cout << arr[i] << std::endl;
-    }
-
 
     std::cout << PINK << "\n/* **************************************************************************/" << RESET << std ::endl;
 		std::cout << PINK << "/*                                    TESTER                                  */" << RESET << std::endl;
 		std::cout << PINK << "/* ************************************************************************** */\n" << RESET << std ::endl;
 
 		std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */" << RESET << std ::endl;
-		std::cout << PINK << "/*                                    ARRAY OF INTS                           */" << RESET << std ::endl;
+		std::cout << PINK << "/*                                   INT                                      */" << RESET << std ::endl;
 		std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */\n" << RESET << std ::endl;
 
-		std::cout << MAGENTA << "TEST WITH CHAR" << RESET << std::endl;
+		std::cout << MAGENTA << "TEST WITH ARRAY ON INTS" << RESET << std::endl;
 
-		/* Test swap with chars */
-		int x1 = 'a', y1 = 'Z';
-		::swap(x1, y1);
-		ASSERT_TEST(x1 == 'Z' && y1 == 'a', "swap(int): x = " + std::string(1, static_cast<char>(x1)) + ", y = " + std::string(1, static_cast<char>(y1)));
-        
-        
+		/* const reference test */
+    std::cout << "const reference test" << std::endl;
+    unsigned int len = 3;
+    const int in_arr_const[3] = {0, 1, std::numeric_limits<int>::max()};
+    testIter(in_arr_const, len, readArray, in_arr_const);
+
+    /* reference test */
+    std::cout << "reference test" << std::endl;
+    int in_arr[3] = {0, 1, 4};
+    int expected_arr[3] = {1, 2, 5};
+    testIter(in_arr, len, increaseOne, expected_arr);
+             
     std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */" << RESET << std ::endl;
-		std::cout << PINK << "/*                              ARRAY OF CLASS VARIABLES                      */" << RESET << std ::endl;
+		std::cout << PINK << "/*                                    CLASS                                   */" << RESET << std ::endl;
 		std::cout << PINK << "/* -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'-,-'- */\n" << RESET << std ::endl;
 
-		std::cout << MAGENTA << "TEST WITH REGULAR INTEGER" << RESET << std::endl;
+		std::cout << MAGENTA << "TEST WITH ARRAY OF CLASS INSTANCES" << RESET << std::endl;
+  
+    /* test */
+    Awesome classTable[5];
+    testIter(classTable, 5, print<Awesome>, classTable);
+
 }
 
 //add test with non function call to proove validity

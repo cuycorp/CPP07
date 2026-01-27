@@ -20,6 +20,8 @@ void print( T& x )
   return;
 }
 
+
+
 int main() {
   int tab[] = { 0, 1, 2, 3, 4 };
   Awesome tab2[5];
@@ -31,3 +33,4 @@ int main() {
 
   return 0;
 }
+

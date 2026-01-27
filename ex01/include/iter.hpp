@@ -10,7 +10,7 @@ void iter(T *array, const T2 len, Func anyFunc)
 {
     for (T2 i = 0; i < len ; i++)
     {
-        func(array[i]);
+        anyFunc(array[i]);
     }
 }
 
