@@ -38,18 +38,3 @@
 * Resources
     * Assert test  https://github.com/raveriss/cpp07 
 
-////Tasks
-test con clases ex0
-correccion ex02 y tests
-
-////Observations
-ex00
-1. tests    
-    * description include 
-ex01
-1. add type
-2. revise the difference between my solutions and alternatives, word out the validity of my function
-3. add class tests
-ex02
-1. revise empty array 
-2. tests
