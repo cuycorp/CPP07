@@ -51,7 +51,7 @@ void readArray(const int &n)
 template <typename T, typename T2, typename Func>
 void testIter(T *array, T2 length, Func func, T *expectedArray) 
 {
-    iter(array, length, func); //call iter
+    ::iter(array, length, func); //call iter
     bool passed = true; //value default to true
     for (T2 i = 0; i < length; ++i) { //loop over string passed to the function
         if (array[i] != expectedArray[i]) {
@@ -123,6 +123,8 @@ int main()
     Awesome classTable[5];
     testIter(classTable, 5, print<Awesome>, classTable);
 
+    //std::cout << MAGENTA << "template test" << RESET << std::endl;
+    //::iter(classTable, 5, 3);
 }
 
 //add test with non function call to proove validity
